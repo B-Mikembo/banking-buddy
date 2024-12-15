@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": " echo \"no test yet\""
+    "test": "npm run --prefix backend test"
   },
   "keywords": [],
   "author": "",

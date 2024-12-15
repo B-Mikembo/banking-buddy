@@ -1,0 +1,12 @@
+{
+  "name": "banking-buddy",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": " echo \"no test yet\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

@@ -13,12 +13,22 @@ jobs:
   dev-test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
+
       - name: Install NodeJS
         uses: actions/setup-node@v4
         with:
           node-version: 21.4.0
-      - name: Install dependencies
-        run: npm install
-      - name: Run tests
-        run: npm run test
+
+      - name: Install backend dependencies & Run tests
+        run: |
+          cd backend
+          npm install
+          npm run test
+        
+      - name: Install frontend dependencies & Run tests
+        run: |
+          cd frontend
+          npm install
+          npm run test

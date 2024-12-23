@@ -1,5 +1,3 @@
 import { UserAccountRepository } from "../ports/user-account.repository";
 
-export class UserAccountRepositoryStore implements UserAccountRepository {
-    
-}
+export class UserAccountRepositoryStore implements UserAccountRepository {}

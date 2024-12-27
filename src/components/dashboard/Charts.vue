@@ -19,6 +19,12 @@ const user = "Brice";
       </div>
 </template>
 <style>
+.chart {
+    position: relative;
+    margin-left: 25%;
+    width: 50%;
+    height: 100%;
+}
 .chart h1 {
   position: relative;
   font-weight: bold;
@@ -26,17 +32,11 @@ const user = "Brice";
   border: 2px solid white;
   margin: auto;
 }
-.chart {
-  position: relative;
-  border: 2px solid white;
-  width: 50%;
-}
 .chart .radialBar {
   position: relative;
   display: flex;
   flex-direction:column;
   align-items: center;
-  border: 2px solid white;
   width: 100%;
 }
 
@@ -57,6 +57,7 @@ const user = "Brice";
   background-color: #0056b3;
 }
 .chart .radialBar .nBank {
+  left: 10px;
   position: relative;
   width: 100%;
 }

@@ -1,29 +1,29 @@
 <script setup lang="ts">
+import Flow from './components/dashboard/Flow.vue';
 </script>
 
 <template>
-  <div>
-    <nav>
-      <RouterLink to="/"></RouterLink>
-    </nav>
-    <RouterView v-slot="{ Component }">
-      <Transition>
-        <component :is="Component"/>
-      </Transition>
-    </RouterView>
+  <div class="container">
+    <Flow />
   </div>
-  </template>
+  <RouterView v-slot="{ Component }">
+    <Transition name="fade">
+      <component :is="Component"/>
+    </Transition>
+  </RouterView>
+</template>
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+.container {
+  position: absolute;
+  color: white;
+  height: 100%;
+  width: 100%;
+  background-color:black;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.4s;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 </style>

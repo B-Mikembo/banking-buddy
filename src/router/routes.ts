@@ -7,24 +7,24 @@ const routes = [
         component: () => import('../views/Dashboard.vue')
     },
     {
-        path: '/',
+        path: '/MyAccounts',
         name: 'Mes Banques',
-        component: () => import('../views/Dashboard.vue')
+        component: () => import('../views/Accounts.vue')
     },
     {
-        path: '/',
+        path: '/MyTransactions',
         name: 'Historique des transactions',
-        component: () => import('../views/Dashboard.vue')
+        component: () => import('../views/Transactions.vue')
     },
     {
-        path: '/',
+        path: '/Transfer',
         name: 'Transfert',
-        component: () => import('../views/Dashboard.vue')
+        component: () => import('../views/Transfer.vue')
     },
     {
-        path: '/',
+        path: '/LinkAccount',
         name: 'Connecter une banque',
-        component: () => import('../views/Dashboard.vue')
+        component: () => import('../views/LinkingBank.vue')
     },
 ]
 const router: Router = createRouter({

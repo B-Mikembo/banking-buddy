@@ -22,19 +22,18 @@
   position: relative;
   border: 2px solid white;
   width: 25%;
+  text-align: center;
   display: flex;
   flex-direction: column;
 }
 .user .img {
   position: relative;
   display: flex;
-  border: 2px solid white;
   width: 30%;
   border-radius: 50%;
 }
 .user .Bank {
   position: relative;
-  border: 2px solid white;
   display:flex;
   flex-direction: column;
   align-items: center;

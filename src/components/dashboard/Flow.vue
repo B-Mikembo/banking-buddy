@@ -12,23 +12,25 @@ const route = useRouter();
 </template>
 <style>
 .flow {
+  z-index: 1;
   position: relative;
-  border: 2px solid white;
-  width: 25%;
   display: flex;
   flex-direction: column;
+  width: 25%;
+  height: 100%;
+  text-align: center;
+  border: 2px solid white;
 }
 
 .flow .pathsBox {
   position: relative;
   margin-top: 50%;
-  border: 2px solid white;
 }
 
 .flow .pathsBox .paths {
   font-size:x-large;
   position: relative;
-  padding-top: 5%;
+  padding-top: 7%;
   border: 1px solid black;
 }
 </style>

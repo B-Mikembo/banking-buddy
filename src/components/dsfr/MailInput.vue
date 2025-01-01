@@ -1,12 +1,14 @@
 <template>
-  <div>
-    <label :for="name">
+  <div class="fr-input-group">
+    <label class="fr-label" :classLabel="classLabel" :for="name">
       {{ label }}
+      <span class="text--normal fr-hint-text">Format attendu: nom@domaine.fr</span>
     </label>
     <input
       :id="name"
       :value="modelValue"
       @input="udpateValue"
+      class="fr-input"
       :name="name"
       autocomplete="on"
       type="email"
@@ -21,6 +23,7 @@ defineProps<{
   name: string;
   label: string;
   modelValue: string;
+  classLabel?: string;
   disable?: boolean;
 }>();
 

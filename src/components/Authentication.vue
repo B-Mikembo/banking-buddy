@@ -18,7 +18,7 @@
             <EmailInput label="Adresse électronique" name="email" />
           </div>
           <div class="fr-fieldset__element">
-            <!-- PasswordInput -->
+            <PasswordLoginInput />
             <!-- Mot de passe oublié ?-->
           </div>
           <div class="fr-fieldset__element fr-mt-2w">
@@ -36,4 +36,5 @@
 </template>
 <script setup lang="ts">
 import EmailInput from "@/components/dsfr/EmailInput.vue";
+import PasswordLoginInput from "@/components/custom/PasswordLoginInput.vue";
 </script>

@@ -1,13 +1,8 @@
 <template>
   <div class="fr-container fr-py-6w">
-    <div
-      class="fr-col-12 fr-col-lg-6 fr-mx-auto fr-p-4w border border-radius--md background--white"
-    >
+    <div class="fr-col-12 fr-col-lg-6 fr-mx-auto fr-p-4w border border-radius--md background--white">
       <form>
-        <fieldset
-          class="fr-mb-0 fr-fieldset"
-          aria-labelledby="login-fieldset-legend"
-        >
+        <fieldset class="fr-mb-0 fr-fieldset" aria-labelledby="login-fieldset-legend">
           <legend class="fr-fieldset__legend" id="login-fieldset-legend">
             <h1 class="text--center">Se connecter avec son compte</h1>
           </legend>
@@ -22,19 +17,23 @@
             <!-- Mot de passe oublié ?-->
           </div>
           <div class="fr-fieldset__element fr-mt-2w">
-            <button
-              class="fr-btn fr-btn--lg display-block full-width"
-              type="submit"
-            >
+            <button class="fr-btn fr-btn--lg display-block full-width" type="submit">
               Se connecter
             </button>
           </div>
         </fieldset>
       </form>
+      <div class="text--center">
+        <hr />
+        <h2 class="fr-h3">Première visite ?</h2>
+        <router-link :to="{ name: AccountRouteName.ACCOUNT_CREATION }"
+          class="fr-btn fr-btn--lg fr-btn--secondary display-block full-width">Créer un compte</router-link>
+      </div>
     </div>
   </div>
 </template>
 <script setup lang="ts">
 import EmailInput from "@/components/dsfr/EmailInput.vue";
 import PasswordLoginInput from "@/components/custom/PasswordLoginInput.vue";
+import { AccountRouteName } from "@/router/account/accountRouteName";
 </script>

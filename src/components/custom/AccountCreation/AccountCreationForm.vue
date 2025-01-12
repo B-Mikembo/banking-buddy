@@ -1,38 +1,32 @@
 <template>
   <form class="space-y-8">
-    <fieldset>
-      <legend>
-        <h1>Créez votre compte sur Noodle Bank</h1>
-      </legend>
-      <p>Tous les champs sont obligatoires</p>
-      <div class="flex gap-4">
-        <TextInput
-          label="Votre nom"
-          name="user-lastname"
-          placeholder="Entrez votre nom"
-          :required="true"
-          :autofocus="true"
-        />
-        <TextInput
-          label="Votre prénom"
-          name="user-firstname"
-          placeholder="Entrez votre prénom"
-          :required="true"
-          :autofocus="true"
-        />
+    <div class="flex gap-4">
+      <div class="form-item">
+        <label class="label form-label" for="firstname">Prénom</label>
+        <input id="firstname" class="input form-input" type="text" placeholder="Entrez votre prénom" />
       </div>
-      <div class="fr-messages-group" aria-live="assertive" id="name-1-fieldset-messages"></div>
-      <div class="fr-fieldset__element">
-        <EmailInput label="Adresse électronique" name="user-email" />
-      </div>
-      <div class="fr-fieldset__element">
-        <PasswordInput />
-      </div>
-      <div class="fr-fieldset__element fr-mb-0 fr-mt-1w">
-        <button class="fr-btn fr-btn--lg display-block full-width" type="submit">S'inscrire</button>
-      </div>
-    </fieldset>
+      <input type="text" placeholder="Entrez votre nom" />
+    </div>
+    <input type="text" placeholder="Entrez votre adresse" />
+    <div class="flex gap-4">
+      <input type="text" placeholder="Entrez votre ville" />
+      <input type="text" placeholder="Entrez votre code postal" />
+    </div>
+    <div class="flex gap-4">
+      <input type="date" />
+      <input type="text" placeholder="Entrez votre numéro de sécurité sociale" />
+    </div>
+    <input type="email" placeholder="Entrez votre adresse électronique" />
+    <input type="password" placeholder="Entrez votre mot de passe" />
+    <div class="flex flex-col gap-4">
+      <button type="submit">S'inscrire</button>
+    </div>
   </form>
+  <slot></slot>
+  <footer class="flex justify-center gap-1">
+    <p>Déjà un compte ?</p>
+    <a href="/authentication">Se connecter</a>
+  </footer>
 </template>
 
 <script setup lang="ts">

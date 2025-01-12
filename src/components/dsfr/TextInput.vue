@@ -1,27 +1,36 @@
 <template>
-    <div class="fr-intput-group">
-        <label class="fr-label" :for="name">
-            {{ label }}
-            <span v-if="description" class="fr-hint-text">{{ description }}</span>
-        </label>
-        <input class="fr-input" :id="name" :name="name" :required="required" :maxlength="maxlength"
-            :autofocus="autofocus" />
-        <p v-if="error && error.show" id="text-input-error-desc-error" class="fr-error-text">{{ error.message }}</p>
+  <div>
+    <label class="label form-label text-sm" :for="name">
+      {{ label }}
+    </label>
+    <div class="flex w-full flex-col">
+      <input
+        class="input-class"
+        :placeholder="placeholder"
+        :id="name"
+        :name="name"
+        :required="required"
+        :maxlength="maxlength"
+        :autofocus="autofocus"
+      />
     </div>
+    <p v-if="error && error.show" id="text-input-error-desc-error" class="text-sm font-medium text-destructive">
+      {{ error.message }}
+    </p>
+  </div>
 </template>
 
 <script setup lang="ts">
-defineProps<{
+  defineProps<{
     name: string;
     label: string;
-    description?: string;
+    placeholder?: string;
     required?: boolean;
     error?: {
-        message: string;
-        show: boolean
-    }
+      message: string;
+      show: boolean;
+    };
     maxlength?: number;
     autofocus?: boolean;
-}>();
-
+  }>();
 </script>

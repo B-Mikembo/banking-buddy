@@ -33,7 +33,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import EmailInput from "@/components/dsfr/EmailInput.vue";
+import EmailInput from "@/components/EmailInput.vue";
 import PasswordLoginInput from "@/components/custom/PasswordLoginInput.vue";
 import { AccountRouteName } from "@/router/account/accountRouteName";
 </script>

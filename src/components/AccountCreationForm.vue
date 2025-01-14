@@ -12,10 +12,27 @@
         </h1>
       </div>
     </header>
+    <form class="space-y-8">
+        <div class="flex gap-4">
+            <TextInput name="firstname" label="Prénom" placeholder="ex: John"/>
+            <TextInput name="lastname" label="Nom" placeholder="Doe" />
+        </div>
+        <TextInput name="address" label="Adresse Postale" placeholder="Entrez votre adresse postale" />
+        <div class="flex gap-4">
+            <TextInput name="city" label="Ville" placeholder="ex: Paris" />
+            <TextInput name="postal-code" label="Code Postal" placeholder="ex: 112233" />
+        </div>
+        <EmailInput />
+        <PasswordInput />
+    </form>
+    <footer class="flex justify-center gap-1">
+        <p class="text-14 font-normal text-gray-600">Déjà un compte ?</p>
+        <a href="/authentication" class="form-link">Se connecter</a>
+    </footer>
   </section>
 </template>
 <script setup lang="ts">
-  import EmailInput from '@/components/dsfr/EmailInput.vue';
-  import PasswordInput from '@/components/custom/PasswordInput.vue';
+  import EmailInput from '@/components/EmailInput.vue';
+  import PasswordInput from '@/components/PasswordInput.vue';
   import TextInput from '@/components/TextInput.vue';
 </script>

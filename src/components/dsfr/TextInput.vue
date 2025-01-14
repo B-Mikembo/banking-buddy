@@ -1,6 +1,6 @@
 <template>
-    <div class="fr-intput-group">
-        <label class="fr-label" :for="name">
+    <div class="">
+        <label class="text-blue-600 font-semibold" :for="name">
             {{ label }}
             <span v-if="description" class="fr-hint-text">{{ description }}</span>
         </label>

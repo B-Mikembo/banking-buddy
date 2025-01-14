@@ -2,7 +2,7 @@ import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import accountRoutes from "./account/routes";
 
 const Authentication = () => import("@/components/Authentication.vue");
-const Page404 = () => import("@/components/pages/Page404.vue");
+const Page404 = () => import("@/pages/Page404.vue");
 
 export enum CommonRouteName {
   AUTHENTICATION = "authentication",

@@ -1,6 +1,6 @@
 import { RouteRecordRaw } from "vue-router";
 import { AccountRouteName } from "./accountRouteName";
-import AccountCreationPage from "@/components/pages/AccountCreationPage.vue";
+import AccountCreationPage from "@/pages/AccountCreationPage.vue";
 
 export enum AccountRoutePath {
     ACCOUNT_CREATION = '/account-creation'

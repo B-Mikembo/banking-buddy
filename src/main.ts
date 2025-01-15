@@ -2,8 +2,6 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import router from "@/router";
-import App from './App.vue'
-import router from './router/routes'
 import VueApexCharts from 'vue3-apexcharts'
 import '@gouvfr/dsfr/dist/component/modal/modal.min.css';
 import '@gouvfr/dsfr/dist/core/core.min.css';

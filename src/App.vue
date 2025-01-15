@@ -1,12 +1,18 @@
 <template>
   <div class="page-container">
     <main id="contenu" class="background--main">
-      <router-view />
+        <Flow />
+  <RouterView v-slot="{ Component }">
+        <Transition name="slide">
+          <component :is="Component"/>
+        </Transition>
+      </RouterView>
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
+import Flow from './components/dashboard/Flow.vue';
 import { RouteLocationNormalized, NavigationGuardNext } from "vue-router";
 import router from "@/router";
 
@@ -36,5 +42,20 @@ router.beforeEach(
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+}
+  .slide-enter-active {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+.slide-enter-from {
+  transform: translateY(+100%);
+  opacity: 0;
+}
+/* Slide-out to the top */
+.slide-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.slide-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
 }
 </style>

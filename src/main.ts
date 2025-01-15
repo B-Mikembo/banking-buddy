@@ -2,7 +2,7 @@ import { createApp } from "vue";
 import "./style.css";
 import App from "./App.vue";
 import router from "@/router";
-
+import VueApexCharts from 'vue3-apexcharts'
 import '@gouvfr/dsfr/dist/component/modal/modal.min.css';
 import '@gouvfr/dsfr/dist/core/core.min.css';
 import '@gouvfr/dsfr/dist/utility/utility.min.css';
@@ -19,6 +19,6 @@ import '@gouvfr/dsfr/dist/dsfr.module.min.js';
 import '@gouvfr/dsfr/dist/component/select/select.min.css';
 import '@gouvfr/dsfr/dist/component/stepper/stepper.min.css';
 
-const app = createApp(App);
-app.use(router);
+const app = createApp(App).use(router);
+app.component('apexchart', VueApexCharts);
 app.mount('#app');

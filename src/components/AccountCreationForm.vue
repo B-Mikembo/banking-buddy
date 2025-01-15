@@ -17,11 +17,6 @@
         <TextInput name="firstname" label="Prénom" placeholder="ex: John" />
         <TextInput name="lastname" label="Nom" placeholder="Doe" />
       </div>
-      <TextInput name="address" label="Adresse Postale" placeholder="Entrez votre adresse postale" />
-      <div class="flex gap-4">
-        <TextInput name="city" label="Ville" placeholder="ex: Paris" />
-        <TextInput name="postal-code" label="Code Postal" placeholder="ex: 112233" />
-      </div>
       <EmailInput />
       <PasswordInput />
       <div class="flex flex-col gap-4">

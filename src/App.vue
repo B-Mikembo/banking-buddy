@@ -42,6 +42,7 @@ router.beforeEach(
   display: grid;
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
+}
   .slide-enter-active {
   transition: transform 0.7s ease, opacity 0.7s ease;
 }

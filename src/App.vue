@@ -1,8 +1,8 @@
 <template>
   <div class="page-container">
     <main id="contenu" class="background--main">
-        <Flow />
-  <RouterView v-slot="{ Component }">
+      <Flow />
+      <RouterView v-slot="{ Component }">
         <Transition name="slide">
           <component :is="Component"/>
         </Transition>
@@ -43,7 +43,7 @@ router.beforeEach(
   grid-template-rows: auto 1fr auto;
   min-height: 100vh;
 }
-  .slide-enter-active {
+.slide-enter-active {
   transition: transform 0.7s ease, opacity 0.7s ease;
 }
 .slide-enter-from {

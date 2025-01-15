@@ -1,20 +1,26 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { series, chartOptions } from "../../domains/dashboard/charts/Charts";
 import { user } from "../../domains/mxlcwm-user/Users";
+const total = computed(() => {
+  return series.value.reduce((acc, val) => acc + val, 0);
+});
 </script>
 
 <template>
   <div class="chart">
     <h1><b>Bienvenue {{ user.name() }} 👋</b></h1>
     <div class="radialBar">
-      <h2 class="nBank">{{ user.banks().length }} comptes bancaires</h2>
-      <apexchart
-        type="donut"
-        width="380"
-        :options="chartOptions"
-        :series="series"
-      ></apexchart>
-      <button>Ajouter une banque</button>
+      <apexchart type="donut" width="300" :options="chartOptions" :series="series"></apexchart>
+      <div class="nBank">
+        <h2>
+          {{ user.banks().length }} comptes bancaires
+          <button> + Add bank</button>
+        </h2>
+        <h3>Total current balance
+          <h2><b>{{ total }} €</b></h2>
+        </h3>
+      </div>
     </div>
     <div class="transactions">
       <h1>
@@ -66,29 +72,47 @@ import { user } from "../../domains/mxlcwm-user/Users";
 .chart .radialBar {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  width: 100%;
 }
-.chart .radialBar button {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 15px 20px;
-  background-color: #007bff;
-  color: white;
+.chart .radialBar .nBank {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  left: 10px;
+}
+
+.chart .radialBar .nBank h2 {
+  position: relative;
+  text-align: start;
+}
+
+.chart .radialBar .nBank button {
+  position: relative;
+  background-color: transparent;
+  font-size: x-large;
+  margin-left: 29%;
+  color: blue;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.4s ease;
 }
-.chart .radialBar button:hover {
-  background-color: #0056b3;
+.chart .radialBar .nBank button:hover {
+  background-color: blue;
+  color: white;
 }
-.chart .radialBar .nBank {
-  left: 10px;
+
+.chart .radialBar .nBank h3 {
   position: relative;
-  width: 100%;
+  font-size: large;
+  color: grey;
+}
+.chart .radialBar .nBank h3 h2 b {
+  position: relative;
+  font-size: larger;
+  color: black;
 }
 .chart .transactions {
   position: relative;

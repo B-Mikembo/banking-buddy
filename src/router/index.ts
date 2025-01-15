@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import accountRoutes from "./account/routes";
+import { title } from "process";
 
 const Authentication = () => import("@/components/Authentication.vue");
 const Page404 = () => import("@/pages/Page404.vue");
@@ -28,6 +29,51 @@ const routes: RouteRecordRaw[] = [
     path: "/:catchAll(.*)",
     name: CommonRouteName.NOT_FOUND,
     component: Page404,
+  },
+  {
+    path: '/',
+    name: 'Dashboard',
+    component: () => import('../pages/Dashboard.vue'),
+    meta: {
+      title: "page",
+      isPublic: true,
+    },
+  },
+  {
+    path: '/MyAccounts',
+    name: 'Mes Banques',
+    component: () => import('../pages/Accounts.vue'),
+    meta: {
+      title: "page",
+      isPublic: true
+    }
+  },
+  {
+    path: '/MyTransactions',
+    name: 'Historique des transactions',
+    component: () => import('../pages/Transactions.vue'),
+    meta: {
+      title: "page",
+      isPublic: true
+    }
+  },
+  {
+    path: '/Transfer',
+    name: 'Transfert',
+    component: () => import('../pages/Transfer.vue'),
+    meta: {
+      title: "page",
+      isPublic: true
+    }
+  },
+  {
+    path: '/LinkAccount',
+    name: 'Connecter une banque',
+    component: () => import('../pages/LinkingBank.vue'),
+    meta: {
+      title: "page",
+      isPublic: true
+    }
   },
 ];
 

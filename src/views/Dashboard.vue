@@ -4,22 +4,20 @@ import User from '../components/dashboard/User.vue';
 </script>
 
 <template>
-  <div class="t">
+  <div class="dashboard-container">
     <Charts />
     <User/>
   </div>
 </template>
 
 <style scoped>
-.t {
-  position: absolute;
+.dashboard-container {
+  position: relative;
   display: flex;
   flex-direction: row;
   color: white;
   margin-left: auto;
   height: 100%;
-  width: 100%;
-  background-color:black;
-  border: 2px solid white;
+  width: 75%;
 }
 </style>

@@ -1,29 +1,60 @@
 <script setup lang="ts">
-import { series, chartOptions, labels } from "../../domains/dashboard/charts/Charts";
-const user = "Brice";
+import { series, chartOptions } from "../../domains/dashboard/charts/Charts";
+import { user } from "../../domains/mxlcwm-user/Users";
 </script>
+
 <template>
-    <div class="chart">
-        <h1><b>Bienvenue, {{ user }}</b></h1>
-        <div class="radialBar">
-          <h2 class="nBank">{{ labels.length }} comptes bancaire</h2>
-          <apexchart type="donut" width="380" :options="chartOptions" :series="series"></apexchart>
-          <button>Ajouter une banque</button>
-        </div>
-        <div class="transactions">
-          <h1>
-            Transactions récentes
-            <button class="see">Tout voir</button>
-          </h1>
-        </div>
-      </div>
+  <div class="chart">
+    <h1><b>Bienvenue {{ user.name() }} 👋</b></h1>
+    <div class="radialBar">
+      <h2 class="nBank">{{ user.banks().length }} comptes bancaires</h2>
+      <apexchart
+        type="donut"
+        width="380"
+        :options="chartOptions"
+        :series="series"
+      ></apexchart>
+      <button>Ajouter une banque</button>
+    </div>
+    <div class="transactions">
+      <h1>
+        Transactions récentes
+        <button class="see">Tout voir</button>
+      </h1>
+      <table class="t" border="1" frame="hsides" rules="rows">
+        <thead>
+          <tr>
+            <th scope="col">Categories</th>
+            <th scope="col">Transactions</th>
+            <th scope="col">Montants</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Abonnements</th>
+            <td>Spotify</td>
+            <td>-15 €</td>
+            <td>Processing</td>
+          </tr>
+          <tr>
+            <th scope="row">Entrée</th>
+            <td>Salaire</td>
+            <td>2 700 €</td>
+            <td>Success</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </template>
+
 <style>
 .chart {
-    position: relative;
-    margin-left: 25%;
-    width: 50%;
-    height: 100%;
+  border: solid 2px white;
+  position: relative;
+  width: 70%;
+  margin-left: 4px;
 }
 .chart h1 {
   position: relative;
@@ -35,11 +66,10 @@ const user = "Brice";
 .chart .radialBar {
   position: relative;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
   align-items: center;
   width: 100%;
 }
-
 .chart .radialBar button {
   position: absolute;
   top: 10px;
@@ -52,7 +82,6 @@ const user = "Brice";
   cursor: pointer;
   transition: background-color 0.2s ease;
 }
-
 .chart .radialBar button:hover {
   background-color: #0056b3;
 }
@@ -65,10 +94,20 @@ const user = "Brice";
   position: relative;
   width: 100%;
 }
-
 .chart .see {
   position: relative;
   width: 30%;
   margin-left: auto;
+}
+.t {
+  position: relative;
+  width: 65%;
+  margin-top: 20%;
+  margin-left: 15%;
+}
+.t th,
+td {
+  text-align: center;
+  padding-top: 3%;
 }
 </style>

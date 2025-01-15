@@ -3,27 +3,27 @@ import Flow from './components/dashboard/Flow.vue';
 </script>
 
 <template>
-  <div class="container">
-    <Flow />
-  </div>
+  <Flow />
   <RouterView v-slot="{ Component }">
-    <Transition name="fade">
+    <Transition name="slide">
       <component :is="Component"/>
     </Transition>
   </RouterView>
 </template>
 <style scoped>
-.container {
-  position: absolute;
-  color: white;
-  height: 100%;
-  width: 100%;
-  background-color:black;
+.slide-enter-active {
+  transition: transform 0.7s ease, opacity 0.7s ease;
 }
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.4s;
+.slide-enter-from {
+  transform: translateY(+100%);
+  opacity: 0;
 }
-.fade-enter-from, .fade-leave-to {
+/* Slide-out to the top */
+.slide-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.slide-leave-to {
+  transform: translateY(-100%);
   opacity: 0;
 }
 </style>

@@ -25,3 +25,5 @@ dist-ssr
 
 # Ignore cache and generated files
 /coverage
+
+.env

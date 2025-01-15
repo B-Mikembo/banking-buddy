@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { classicNameResolver } from 'typescript';
 const config = {
-  content: ['./index.html', './src/**/*.{vue, js, ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{vue, js, ts}'],
   theme: {
     container: {
       center: true,

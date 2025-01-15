@@ -2,8 +2,14 @@
 import { computed } from "vue";
 import { series, chartOptions } from "../../domains/dashboard/charts/Charts";
 import { user } from "../../domains/mxlcwm-user/Users";
+
+const formatNumber = (value: number): string => {
+  return new Intl.NumberFormat("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }).format(value);
+};
+
 const total = computed(() => {
-  return series.value.reduce((acc, val) => acc + val, 0);
+  const sum = series.value.reduce((acc, val) => acc + val, 0);
+  return formatNumber(sum);
 });
 </script>
 
@@ -18,7 +24,7 @@ const total = computed(() => {
           <button> + Add bank</button>
         </h2>
         <h3>Total current balance
-          <h2><b>{{ total }} €</b></h2>
+          <h2><b>{{ total }} $</b></h2>
         </h3>
       </div>
     </div>
@@ -54,7 +60,6 @@ const total = computed(() => {
     </div>
   </div>
 </template>
-
 <style>
 .chart {
   border: solid 2px white;

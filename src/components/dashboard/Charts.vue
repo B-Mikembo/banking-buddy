@@ -24,7 +24,7 @@ const total = computed(() => {
           <button> + Add bank</button>
         </h2>
         <h3>Total current balance
-          <h2><b>{{ total }} $</b></h2>
+          <h2><b>${{ total }}</b></h2>
         </h3>
       </div>
     </div>

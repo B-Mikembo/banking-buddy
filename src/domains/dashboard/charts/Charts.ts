@@ -10,9 +10,7 @@ const updateSeriesData = () => {
 };
 
 updateSeriesData();
-console.log(Object.keys(seriesData.value));
 export const series = ref(Object.values(seriesData.value));
-
 export const labels = ref(Object.keys(seriesData.value));
 
 export const chartOptions = ref({
@@ -25,13 +23,6 @@ export const chartOptions = ref({
       startAngle: -90,
       endAngle: 270,
       donut: {
-        labels: {
-          show: true,
-          total: {
-            show: true,
-            color: "#ffffff",
-          },
-        },
       },
     },
   },
@@ -43,21 +34,7 @@ export const chartOptions = ref({
   },
   labels: labels.value,
   legend: {
-    formatter: (val: string, opts: any) =>
-      `${val} - ${opts.w.globals.series[opts.seriesIndex]}`,
-    labels: {
-      useSeriesColors: true,
-    },
-    markers: {
-      size: 5,
-      shape: "diamond",
-      strokeWidth: 2,
-      offsetX: -8,
-    },
-    itemMargin: {
-      horizontal: 2,
-      vertical: 5,
-    },
+    show: false
   },
   responsive: [
     {

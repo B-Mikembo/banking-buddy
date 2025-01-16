@@ -32,28 +32,24 @@
 </script>
 
 <style scoped>
-  .page-container {
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    min-height: 100vh;
-  }
-  .slide-enter-active {
-    transition:
-      transform 0.7s ease,
-      opacity 0.7s ease;
-  }
-  .slide-enter-from {
-    transform: translateY(+100%);
-    opacity: 0;
-  }
-  /* Slide-out to the top */
-  .slide-leave-active {
-    transition:
-      transform 0.2s ease,
-      opacity 0.2s ease;
-  }
-  .slide-leave-to {
-    transform: translateY(-100%);
-    opacity: 0;
-  }
+.page-container {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+}
+.slide-enter-active {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+.slide-enter-from {
+  transform: translateY(+100%);
+  opacity: 0;
+}
+/* Slide-out to the top */
+.slide-leave-active {
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.slide-leave-to {
+  transform: translateY(-100%);
+  opacity: 0;
+}
 </style>

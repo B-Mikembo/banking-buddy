@@ -12,15 +12,39 @@
         </h1>
       </div>
     </header>
-    <form class="space-y-8">
+    <form @submit.prevent="validateForm" class="space-y-8">
       <div v-if="type === 'sign-up'">
         <div class="flex gap-4">
-          <CustomInput name="firstname" label="Prénom" placeholder="Entrez votre prénom" />
-          <CustomInput name="lastname" label="Nom" placeholder="Entrez votre nom" />
+          <CustomInput
+            v-model="formData.firstname"
+            name="firstname"
+            label="Prénom"
+            placeholder="Entrez votre prénom"
+            :error-message="fieldErrors.firstname"
+          />
+          <CustomInput
+            v-model="formData.lastname"
+            name="lastname"
+            label="Nom"
+            placeholder="Entrez votre nom"
+            :error-message="fieldErrors.lastname"
+          />
         </div>
       </div>
-      <CustomInput name="email" label="Email" placeholder="Entrez votre adresse électronique" />
-      <CustomInput name="password" label="Mot de passe" placeholder="Entrez votre mot de passe" />
+      <CustomInput
+        v-model="formData.email"
+        name="email"
+        label="Email"
+        placeholder="Entrez votre adresse électronique"
+        :error-message="fieldErrors.email"
+      />
+      <CustomInput
+        v-model="formData.password"
+        name="password"
+        label="Mot de passe"
+        placeholder="Entrez votre mot de passe"
+        :error-message="fieldErrors.password"
+      />
       <div class="flex flex-col gap-4">
         <button type="submit" class="form-btn">
           {{ type === 'sign-in' ? 'Se connecter' : "S'inscrire" }}
@@ -39,7 +63,56 @@
 </template>
 
 <script setup lang="ts">
-  defineProps<{
+  import { useRoute, useRouter } from 'nuxt/app';
+  import { ref } from 'vue';
+
+  import { z } from 'zod';
+
+  const props = defineProps<{
     type: string;
   }>();
+
+  const formData = ref({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+  });
+
+  const formSchema = z.object({
+    firstname:
+      props.type === 'sign-in' ? z.string().optional() : z.string().min(3, 'Le prénom contenir au moins 3 caractères'),
+    lastname:
+      props.type === 'sign-in'
+        ? z.string().optional()
+        : z.string().min(3, 'Le nom doit contenir au moins 3 caractères'),
+    email: z.string().email("L'adresse électronique est invalide"),
+    password: z.string().min(8, 'Le mot de passe doit contenir au moins 8 caractères'),
+  });
+
+  let fieldErrors = ref({
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: '',
+  });
+
+  const validateForm = () => {
+    Object.keys(fieldErrors.value).forEach(key => (fieldErrors.value[key] = ''));
+    try {
+      formSchema.parse(formData.value);
+      if (props.type === 'sign-up') {
+      }
+      if (props.type === 'sign-in') {
+        useRouter().push('/');
+      }
+    } catch (err) {
+      if (err.errors) {
+        err.errors.forEach(e => {
+          const fieldName = e.path[0];
+          fieldErrors.value[fieldName] = e.message;
+        });
+      }
+    }
+  };
 </script>

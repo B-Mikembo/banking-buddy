@@ -21,12 +21,20 @@
       </div>
       <EmailInput />
       <PasswordSignInInput />
+      <div class="flex flex-col gap-4">
+        <button type="submit" class="form-btn">
+          {{ type === 'sign-in' ? 'Se connecter' : "S'inscrire" }}
+        </button>
+      </div>
     </form>
-    <div class="flex flex-col gap-4">
-      <button type="submit" class="form-btn">
-        {{ type === 'sign-in' ? 'Se connecter' : "S'inscrire" }}
-      </button>
-    </div>
+    <footer class="flex justify-center gap-1">
+      <p class="text-14 font-normal text-gray-600">
+        {{ type === 'sign-in' ? 'Pas de compte ?' : 'Déjà un compte ?' }}
+      </p>
+      <NuxtLink :to="type === 'sign-in' ? '/auth/sign-up' : '/auth/sign-in'" class="form-link">
+        {{ type === 'sign-in' ? "S'inscrire" : 'Se connecter' }}
+      </NuxtLink>
+    </footer>
   </section>
 </template>
 

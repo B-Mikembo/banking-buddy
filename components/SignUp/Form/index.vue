@@ -1,5 +1,4 @@
 <template>
-  <section class="auth-form">
     <header class="flex flex-col gap-5 md:gap-8">
       <NuxtLink to="/" class="cursor-pointer flex items-center gap-1">
         <img src="/vite.svg" alt="Vite logo" width="34" height="34">
@@ -27,5 +26,4 @@
       <p class="text-14 font-normal text-gray-600">Déjà un compte ?</p>
       <NuxtLink to="/authentication/sign-in" class="form-link">Se connecter</NuxtLink>
     </footer>
-  </section>
 </template>

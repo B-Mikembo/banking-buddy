@@ -7,4 +7,7 @@ export default defineNuxtConfig({
   supabase: {
     redirect: false,
   },
+  build: {
+    transpile: ['vue-countup-v3'],
+  },
 });

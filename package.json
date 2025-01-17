@@ -15,5 +15,8 @@
     "vue": "latest",
     "vue-router": "latest",
     "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@nuxtjs/supabase": "^1.4.5"
   }
 }

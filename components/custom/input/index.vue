@@ -5,6 +5,7 @@
     </label>
     <div class="flex w-full flex-col">
       <input
+        :id="name"
         :value="modelValue"
         @input="updateValue"
         :placeholder="placeholder"

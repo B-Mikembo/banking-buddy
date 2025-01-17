@@ -12,18 +12,18 @@
         </h1>
       </div>
     </header>
-    <form @submit.prevent="validateForm" class="space-y-8">
+    <form @submit.prevent="onSubmit" class="space-y-8">
       <div v-if="type === 'sign-up'">
         <div class="flex gap-4">
           <CustomInput
-            v-model="formData.firstname"
+            v-model="form.firstname"
             name="firstname"
             label="Prénom"
             placeholder="Entrez votre prénom"
             :error-message="fieldErrors.firstname"
           />
           <CustomInput
-            v-model="formData.lastname"
+            v-model="form.lastname"
             name="lastname"
             label="Nom"
             placeholder="Entrez votre nom"
@@ -32,14 +32,14 @@
         </div>
       </div>
       <CustomInput
-        v-model="formData.email"
+        v-model="form.email"
         name="email"
         label="Email"
         placeholder="Entrez votre adresse électronique"
         :error-message="fieldErrors.email"
       />
       <CustomInput
-        v-model="formData.password"
+        v-model="form.password"
         name="password"
         label="Mot de passe"
         placeholder="Entrez votre mot de passe"
@@ -63,32 +63,35 @@
 </template>
 
 <script setup lang="ts">
-  import { useRoute, useRouter } from 'nuxt/app';
   import { ref } from 'vue';
 
-  import { z } from 'zod';
-
+  import { z, ZodError } from 'zod';
+  const users = useUsers();
   const props = defineProps<{
     type: string;
   }>();
 
-  const formData = ref({
+  const form = ref({
     firstname: '',
     lastname: '',
     email: '',
     password: '',
   });
 
-  const formSchema = z.object({
-    firstname:
-      props.type === 'sign-in' ? z.string().optional() : z.string().min(3, 'Le prénom contenir au moins 3 caractères'),
-    lastname:
-      props.type === 'sign-in'
-        ? z.string().optional()
-        : z.string().min(3, 'Le nom doit contenir au moins 3 caractères'),
-    email: z.string().email("L'adresse électronique est invalide"),
-    password: z.string().min(8, 'Le mot de passe doit contenir au moins 8 caractères'),
-  });
+  const formSchema = z
+    .object({
+      firstname:
+        props.type === 'sign-in'
+          ? z.string().optional()
+          : z.string().min(3, 'Le prénom contenir au moins 3 caractères'),
+      lastname:
+        props.type === 'sign-in'
+          ? z.string().optional()
+          : z.string().min(3, 'Le nom doit contenir au moins 3 caractères'),
+      email: z.string().email("L'adresse électronique est invalide"),
+      password: z.string().min(8, 'Le mot de passe doit contenir au moins 8 caractères'),
+    })
+    .strict();
 
   let fieldErrors = ref({
     firstname: '',
@@ -97,22 +100,33 @@
     password: '',
   });
 
-  const validateForm = () => {
-    Object.keys(fieldErrors.value).forEach(key => (fieldErrors.value[key] = ''));
+  async function onSubmit() {
+    fieldErrors.value = {
+      firstname: '',
+      lastname: '',
+      email: '',
+      password: '',
+    };
     try {
-      formSchema.parse(formData.value);
       if (props.type === 'sign-up') {
+        const userData = formSchema.parse(form.value) as SignUpParams;
+        const newUser = await users.signUp(userData);
+        console.log(newUser);
       }
       if (props.type === 'sign-in') {
-        useRouter().push('/');
+        const userData = formSchema.parse(form.value) as signInProps;
+        const response = await users.signIn(userData);
       }
-    } catch (err) {
-      if (err.errors) {
-        err.errors.forEach(e => {
+    } catch (error) {
+      if (error instanceof ZodError) {
+        console.log(error.errors);
+        error.errors.forEach(e => {
           const fieldName = e.path[0];
           fieldErrors.value[fieldName] = e.message;
         });
+      } else {
+        console.log('Unexcepted error: ', error);
       }
     }
-  };
+  }
 </script>

@@ -1,4 +1,5 @@
 export default function () {
+  const router = useRouter();
   const signUp = async (userData: SignUpParams) => {
     const { email, password } = userData;
     let newUserAccount;
@@ -26,7 +27,18 @@ export default function () {
         password: password,
       });
       if (error) throw error;
-      useRouter().push('/');
+      router.push('/');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const signOut = async () => {
+    try {
+      const client = useSupabaseClient();
+      const { error } = await client.auth.signOut();
+      if (error) throw error;
+      router.push('/auth/sign-in');
     } catch (error) {
       console.error(error);
     }
@@ -35,5 +47,6 @@ export default function () {
   return {
     signUp,
     signIn,
+    signOut,
   };
 }

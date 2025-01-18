@@ -67,6 +67,8 @@
 
   import { z, ZodError } from 'zod';
   const users = useUsers();
+  const user = useState();
+
   const props = defineProps<{
     type: string;
   }>();
@@ -110,12 +112,14 @@
     try {
       if (props.type === 'sign-up') {
         const userData = formSchema.parse(form.value) as SignUpParams;
-        const newUser = await users.signUp(userData);
-        console.log(newUser);
+        const newUser: { id: string; firstname: string; lastname: string; email: string } = await users.signUp(
+          userData
+        );
+        user.value = newUser;
       }
       if (props.type === 'sign-in') {
-        const userData = formSchema.parse(form.value) as signInProps;
-        const response = await users.signIn(userData);
+        const userData = formSchema.parse(form.value);
+        const response = await useSignIn({ email: userData.email, password: userData.password });
       }
     } catch (error) {
       if (error instanceof ZodError) {

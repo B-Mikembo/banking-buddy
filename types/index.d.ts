@@ -30,3 +30,7 @@ declare interface HeaderBoxProps {
   subtext: string;
   user?: string;
 }
+
+declare interface getUserInfoProps {
+  userId: string;
+}

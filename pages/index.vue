@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const user = useSupabaseUser();
+  const user = await useGetLoggedInUser();
   const accounts = [
     {
       id: 'acc123',
@@ -55,7 +55,7 @@
         <HeaderBox
           type="greeting"
           title="Bienvenue"
-          :user="user?.email"
+          :user="user?.firstname"
           sub-text="Accèdez et gérez efficacement votre compte et vos transactions."
         />
         <TotalBalanceBox

@@ -1,33 +1,30 @@
+import type { Database } from '~/types/database.types';
+
 export default function () {
   const router = useRouter();
   const signUp = async (userData: SignUpParams) => {
     const { email, password } = userData;
     let newUserAccount;
     try {
-      const client = useSupabaseClient();
-      newUserAccount = await client.auth.signUp({
+      const client = useSupabaseClient<Database>();
+      const signUpResponse = await client.auth.signUp({
         email: userData.email,
         password: userData.password,
       });
-      if (newUserAccount.error) throw newUserAccount.error;
-      await client.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  };
+      if (signUpResponse.error) throw signUpResponse.error;
 
-  const signIn = async ({ email, password }: signInProps) => {
-    try {
-      const client = useSupabaseClient();
-      const { error } = await client.auth.signInWithPassword({
+      const newUser = await client
+        .from('users')
+        .insert({ firstname: userData.firstname, lastname: userData.lastname, email: userData.email })
+        .select()
+        .single();
+
+      const signInResponse = await client.auth.signInWithPassword({
         email: email,
         password: password,
       });
-      if (error) throw error;
-      router.push('/');
+      if (signInResponse.error) throw signInResponse.error;
+      return newUser.data;
     } catch (error) {
       console.error(error);
     }
@@ -46,7 +43,6 @@ export default function () {
 
   return {
     signUp,
-    signIn,
     signOut,
   };
 }

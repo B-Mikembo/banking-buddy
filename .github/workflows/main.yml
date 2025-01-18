@@ -21,9 +21,7 @@ jobs:
           node-version: 21.4
 
       - name: Install dependencies
-        run: |
-          npm cache clean --force
-          npm install
+        run: npm install --no-optional
 
       - name: Build Project
         run: npm run build

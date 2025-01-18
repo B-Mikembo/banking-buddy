@@ -112,9 +112,12 @@
     try {
       if (props.type === 'sign-up') {
         const userData = formSchema.parse(form.value) as SignUpParams;
-        const newUser: { id: string; firstname: string; lastname: string; email: string } = await users.signUp(
-          userData
-        );
+        const newUser: { id: string; firstname: string; lastname: string; email: string } = await useSignUp({
+          firstname: userData.firstname,
+          lastname: userData.lastname,
+          password: userData.password,
+          email: userData.email,
+        });
         user.value = newUser;
       }
       if (props.type === 'sign-in') {

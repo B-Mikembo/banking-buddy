@@ -1,12 +1,9 @@
-import type { Database } from '~/types/database.types';
-
 export default function () {
   const router = useRouter();
   const signUp = async (userData: SignUpParams) => {
     const { email, password } = userData;
-    let newUserAccount;
     try {
-      const client = useSupabaseClient<Database>();
+      const client = useSupabaseClient();
       const signUpResponse = await client.auth.signUp({
         email: userData.email,
         password: userData.password,

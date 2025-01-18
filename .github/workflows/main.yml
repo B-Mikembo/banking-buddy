@@ -20,6 +20,10 @@ jobs:
         with:
           node-version: 21.4
 
+      - name: Clean up
+        run: |
+          rm -rf node_modules
+          rm -f package-lock.json
       - name: Install dependencies
         run: npm install --no-optional
 

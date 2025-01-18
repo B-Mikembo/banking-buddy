@@ -1,7 +1,7 @@
 <script setup lang="ts">
   const user = useSupabaseUser();
   const handleLogout = async () => {
-    await useUsers().signOut();
+    await useSignOut();
   };
 </script>
 

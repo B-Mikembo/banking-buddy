@@ -66,7 +66,6 @@
   import { ref } from 'vue';
 
   import { z, ZodError } from 'zod';
-  const users = useUsers();
   const user = useState();
 
   const props = defineProps<{

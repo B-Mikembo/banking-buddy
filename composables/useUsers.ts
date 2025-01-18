@@ -1,32 +1,5 @@
 export default function () {
   const router = useRouter();
-  const signUp = async (userData: SignUpParams) => {
-    const { email, password } = userData;
-    try {
-      const client = useSupabaseClient();
-      const signUpResponse = await client.auth.signUp({
-        email: userData.email,
-        password: userData.password,
-      });
-      if (signUpResponse.error) throw signUpResponse.error;
-
-      const newUser = await client
-        .from('users')
-        .insert({ firstname: userData.firstname, lastname: userData.lastname, email: userData.email })
-        .select()
-        .single();
-
-      const signInResponse = await client.auth.signInWithPassword({
-        email: email,
-        password: password,
-      });
-      if (signInResponse.error) throw signInResponse.error;
-      return newUser.data;
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
   const signOut = async () => {
     try {
       const client = useSupabaseClient();
@@ -39,7 +12,6 @@ export default function () {
   };
 
   return {
-    signUp,
     signOut,
   };
 }

@@ -5,7 +5,7 @@
       <input id="email" type="email" placeholder="Entrez votre adresse électronique" class="input-class" />
       <p v-if="error && error.show">{{ error?.message }}</p>
     </div>
-  </div>
+  </div> 
 </template>
 
 <script setup lang="ts">

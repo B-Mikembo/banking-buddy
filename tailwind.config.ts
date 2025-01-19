@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss';
 import { classicNameResolver } from 'typescript';
 const config = {
-  content: ['./index.html', './src/**/*.{vue, js, ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{vue, js, ts}'],
   theme: {
     container: {
       center: true,
@@ -34,6 +34,8 @@ const config = {
       },
       boxShadow: {
         form: '0px 1px 2px 0px rgba(16, 24, 40, 0.05)',
+        chart: '0px 1px 3px 0px rgba(16, 24, 40, 0.10), 0px 1px 2px 0px rgba(16, 24, 40, 0.06)',
+        creditCard: '8px 10px 16px 0px rgba(0, 0, 0, 0.05)',
       },
       fontFamily: {
         inter: 'var(--font-inter)',

@@ -4,7 +4,7 @@
       <Flow />
       <RouterView v-slot="{ Component }">
         <Transition name="slide">
-          <component :is="Component"/>
+          <component :is="Component" />
         </Transition>
       </RouterView>
     </main>
@@ -12,17 +12,12 @@
 </template>
 
 <script setup lang="ts">
-import Flow from './components/dashboard/Flow.vue';
-import { RouteLocationNormalized, NavigationGuardNext } from "vue-router";
-import router from "@/router";
+  import Flow from './components/dashboard/Flow.vue';
+  import { RouteLocationNormalized, NavigationGuardNext } from 'vue-router';
+  import router from '@/router';
 
-const appName = "- Noodle Bank";
-router.beforeEach(
-  (
-    to: RouteLocationNormalized,
-    from: RouteLocationNormalized,
-    next: NavigationGuardNext
-  ) => {
+  const appName = '- Noodle Bank';
+  router.beforeEach((to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
     const { title, isPublic } = to.meta;
     if (title) {
       document.title = `${title as string} ${appName}`;
@@ -30,11 +25,10 @@ router.beforeEach(
     if (isPublic) {
       next();
     } else {
-      next({ name: "authentication" });
-      sessionStorage.setItem("requestedRoute", to.fullPath);
+      next({ name: 'authentication' });
+      sessionStorage.setItem('requestedRoute', to.fullPath);
     }
-  }
-);
+  });
 </script>
 
 <style scoped>

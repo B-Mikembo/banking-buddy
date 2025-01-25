@@ -69,13 +69,4 @@
 </template>
 
 <style scoped>
-  .dashboard-container {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    color: white;
-    margin-left: auto;
-    height: 100%;
-    width: 75%;
-  }
 </style>

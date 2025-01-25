@@ -84,7 +84,7 @@
       firstname:
         props.type === 'sign-in'
           ? z.string().optional()
-          : z.string().min(3, 'Le prénom contenir au moins 3 caractères'),
+          : z.string().min(3, 'Le prénom doit contenir au moins 3 caractères'),
       lastname:
         props.type === 'sign-in'
           ? z.string().optional()

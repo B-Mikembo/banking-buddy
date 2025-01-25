@@ -82,13 +82,33 @@
     @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:hidden;
   }
   .header-box {
-    @apply flex flex-col gap-1;
+    @apply flex flex-col gap-1 mb-3;
   }
   .header-box-title {
     @apply text-24 lg:text-30 font-semibold text-gray-900;
   }
   .header-box-subtext {
     @apply text-14 lg:text-16 font-normal text-gray-600;
+  }
+
+  /* Transfer form */
+  .form-box {
+    @apply flex flex-col w-full border border-gray-200 shadow-chart sm:p-2;
+  }
+  .form-box-title {
+    @apply text-16 lg:text-24 font-semibold text-gray-900;
+  }
+  .form-box-subtext {
+    @apply text-12 lg:text-14 mb-6 font-normal text-gray-600 mx-2;
+  }
+  .field-box {
+    @apply w-full mb-6 h-24 md:grid-cols-2 md:items-center border border-gray-200 shadow-chart sm:p-2 flex;
+  }
+  .field-subtitle {
+    @apply text-16 sm:w-3/12 lg:w-1/5 lg:text-18 font-semibold text-gray-800;
+  }
+  .field-description {
+    @apply sm:text-sm justify-normal lg:text-14 font-normal text-gray-600 mx-2;
   }
   /* Footer */
   .footer {

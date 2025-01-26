@@ -1,5 +1,5 @@
-import type { AuthenticatedUser } from './user.repository';
+import type { AuthUser } from './user.repository';
 
 export interface AuthUserPresenter {
-  show(authUser: AuthenticatedUser): void;
+  show(id: AuthUser): void;
 }

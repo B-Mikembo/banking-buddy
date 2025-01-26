@@ -62,14 +62,14 @@ const requiredFields = [
   { key: 'amount', must: true, category: 'recipientDetails' },
 ];
 
-const isFormValid = computed(() => {
+const isFormComplete = computed(() => {
   return requiredFields.every((field) => {
     const value = formValues.value[field.category]?.[field.key];
     return field.must ? value && value.trim().length > 0 : true;
   });
 });
 
-function isAmountValid() : boolean {
+function isValuesValid() : boolean {
   const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   const value = formValues.value.recipientDetails["amount"];
   let i : number = 0;
@@ -77,7 +77,6 @@ function isAmountValid() : boolean {
     i++;
   if (emailRegex.test(formValues.value.recipientDetails["email"]))
     i++;
-  console.log(i);
   
   return i >= 2 ? true : false;
 }
@@ -145,8 +144,8 @@ const submitForm = () => {
         />
         <button
           @click="submitForm"
-          :disabled="!isFormValid && !isAmountValid()"
-          :class="isFormValid && isAmountValid()  ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'"
+          :disabled="!isFormComplete && !isValuesValid()"
+          :class="isFormComplete && isValuesValid()  ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'"
           class="w-full rounded text-white"
         >
           Soumettre le formulaire

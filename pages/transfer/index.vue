@@ -106,6 +106,7 @@ const submitForm = () => {
               selectArray: accountDict,
               subtitle: 'Sélectionner votre ressource *',
               description: 'Choisissez depuis quel compte souhaitez-vous effectuer le transfert',
+              button: 'Séléctionner une banque',
               must: true,
             },
             {

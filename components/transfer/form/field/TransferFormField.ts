@@ -3,5 +3,6 @@ export type TransferFormField = {
     selectArray?: Record<string, string>;
     subtitle: string;
     description?: string;
+    button?: string;
     must: boolean;
 };

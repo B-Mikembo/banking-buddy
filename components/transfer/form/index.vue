@@ -48,7 +48,7 @@ watch(
               :class="modelValue[field.key] ? 'bg-green-300' : 'border-gray-200'"
             >
               <span>
-                {{ modelValue[field.key]?.length > 0 ? modelValue[field.key] : 'Sélectionner une banque' }}
+                {{ modelValue[field.key]?.length > 0 ? modelValue[field.key] : field.button }}
               </span>
               <span :class="isOpen ? 'rotate-180' : ''" class="transition-transform absolute right-4 text-sm">▲</span>
             </button>

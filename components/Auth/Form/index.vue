@@ -66,6 +66,8 @@
   import { ref } from 'vue';
 
   import { z, ZodError } from 'zod';
+  import { UserRepositorySupabase } from '../../../domains/authentication/adapters/user.repository.supabase';
+  import { SignInUsecase } from '../../../domains/authentication/sign-in.usecase';
   const user = useState();
 
   const props = defineProps<{
@@ -121,7 +123,16 @@
       }
       if (props.type === 'sign-in') {
         const userData = formSchema.parse(form.value);
-        const response = await useSignIn({ email: userData.email, password: userData.password });
+        const usecase = new SignInUsecase(new UserRepositorySupabase());
+        usecase
+          .execute(form.value.email, form.value.password)
+          .then(() => {
+            useRouter().push('/');
+          })
+          .catch(reason => {
+            console.error(reason);
+            //console.error(reason.data.message);
+          });
       }
     } catch (error) {
       if (error instanceof ZodError) {

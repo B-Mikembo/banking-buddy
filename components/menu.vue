@@ -1,4 +1,5 @@
 <script lang="ts">
+import { Icon } from '#components';
     export default {
     data() {
     return {
@@ -20,7 +21,7 @@
                 <NuxtLink
                 :to="link.to"
                 class="flex py-4 border-2 border-transparent rounded hover:border-blue-500 transition-all duration-300"
-                active-class="bg-blue-500 text-white rounded transition-all duration-300" exact> <nuxt-icon :name="link.icon" class="content-center mx-3 text-3xl"/> {{ link.label }} </NuxtLink></li>
+                active-class="bg-blue-500 text-white rounded transition-all duration-300" exact> <Icon :name="`icon:${link.icon}`" class="content-center mx-3 text-3xl"/> {{ link.label }} </NuxtLink></li>
         </ul>
     </nav>
 </template>

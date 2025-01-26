@@ -2,12 +2,20 @@
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/supabase', 'nuxt-icons'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/supabase', '@nuxt/icon'],
   css: ['./assets/css/main.css'],
   supabase: {
     redirect: false,
   },
   build: {
     transpile: ['vue-countup-v3'],
+  },
+  icon: {
+    customCollections: [
+      {
+        prefix: 'icon',
+        dir: './assets/icons'
+      },
+    ],
   },
 });

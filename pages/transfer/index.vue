@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import { boolean } from 'zod';
 
 const user = await useGetLoggedInUser();
 const accounts = [
@@ -68,6 +69,19 @@ const isFormValid = computed(() => {
   });
 });
 
+function isAmountValid() : boolean {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  const value = formValues.value.recipientDetails["amount"];
+  let i : number = 0;
+  if (/^\d+$/.test(value) && value > 0)
+    i++;
+  if (emailRegex.test(formValues.value.recipientDetails["email"]))
+    i++;
+  console.log(i);
+  
+  return i >= 2 ? true : false;
+}
+
 const submitForm = () => {
   console.log('Form Submitted:', formValues.value);
 };
@@ -131,8 +145,8 @@ const submitForm = () => {
         />
         <button
           @click="submitForm"
-          :disabled="!isFormValid"
-          :class="isFormValid ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'"
+          :disabled="!isFormValid && !isAmountValid()"
+          :class="isFormValid && isAmountValid()  ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'"
           class="w-full rounded text-white"
         >
           Soumettre le formulaire

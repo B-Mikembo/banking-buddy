@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import type { TransferFormField } from './field/TransferFormField';
+import type { TransferFormField } from '~/config/transfer/config';
 
 const props = defineProps<{
   title: string;

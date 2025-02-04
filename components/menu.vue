@@ -1,5 +1,4 @@
 <script lang="ts">
-import { Icon } from '#components';
     export default {
     data() {
     return {

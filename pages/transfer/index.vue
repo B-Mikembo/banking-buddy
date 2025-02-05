@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { pages } from "~/config/assignPage";
+import { pages } from "~/pages-config/storage";
 import { ref, computed } from "vue";
-import { transferPageSections } from "~/config/transfer/config";
-import { PageManager } from "~/config/pages.config";
+import { transferPage } from "~/pages-config/transfer";
+import { PageManager } from "~/pages-config/page-manager";
 
 const formValues = ref({
   transferInfo: {},
@@ -36,7 +36,7 @@ const submitForm = () => {
   console.log("Form Submitted:", formValues.value);
 
 };
-pages.addPage(new PageManager(transferPageSections(formValues.value.transferInfo, formValues.value.recipientDetails), "transfer"));
+pages.addPage(new PageManager(transferPage(formValues.value.transferInfo, formValues.value.recipientDetails), "transfer"));
 const transfer = pages.getPageByName("transfer");
 </script>
 <template>

@@ -1,4 +1,4 @@
-import { PageManager } from "./pages.config";
+import { PageManager } from "./page-manager";
 import { createPinia, setActivePinia, defineStore } from "pinia";
 const pinia = createPinia();
 setActivePinia(pinia);

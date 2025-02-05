@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import type { TransferFormField } from '~/config/transfer/config';
+import type { TransferFormField } from '~/pages-config/transfer';
 
 const props = defineProps<{
   title: string;
@@ -20,7 +20,6 @@ const selectBank = (bank: string, key: string) => {
   selectedBank = bank;
   isOpen.value = false;
 };
-
 watch(
   () => modelValue.value,
   (newValue) => {
@@ -29,7 +28,6 @@ watch(
   { deep: true }
 );
 </script>
-
 <template>
   <div class="form-box">
     <h1 class="form-box-title">{{ title }}</h1>

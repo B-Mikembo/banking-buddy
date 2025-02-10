@@ -1,6 +1,4 @@
-<script setup lang="ts">
-  const user = await useGetLoggedInUser();
-  const accounts = [
+export const accounts = [
     {
       id: 'acc123',
       availableBalance: 1500.75,
@@ -42,31 +40,6 @@
     },
   ];
 
-  const totalBanks = 2;
-  const totalCurrentBalance = accounts
+export const totalCurrentBalance = accounts
     .map(account => account.currentBalance)
     .reduce((accumulator, currentValue) => accumulator + currentValue, 0);
-</script>
-
-<template>
-  <section>
-    <div>
-      <header>
-        <HeaderBox
-          type="greeting"
-          title="Bienvenue"
-          :user="user?.firstname"
-          sub-text="Accèdez et gérez efficacement votre compte et vos transactions."
-        />
-        <TotalBalanceBox
-          :accounts="accounts"
-          :total-banks="accounts?.length"
-          :total-current-balance="totalCurrentBalance"
-        />
-      </header>
-    </div>
-  </section>
-</template>
-
-<style scoped>
-</style>

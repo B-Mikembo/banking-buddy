@@ -1,21 +1,21 @@
 <script lang="ts">
-import { Icon } from '#components';
     export default {
     data() {
     return {
       links: [
-        { to: "/", label: "Home", icon: "home"},
-        { to: "/banks", label: "Mes Banques", icon: "bank"},
-        { to: "/transactions", label: "Historique des transactions", icon: "transactions"},
-        { to: "/transfer", label: "Transfert", icon: "transfer"},
-        { to: "/addbank", label: "Connecter une banque", icon: "addbank"},
+        { to: "/home", label: "Pilotage mensuel", icon: "car"},
+        { to: "/capacity", label: "Revenus", icon: "capacity"},
+        { to: "/investments", label: "Investissements", icon: "investments"},
+        { to: "/savings", label: "Épargnes", icon: "savings"},
+        { to: "/must", label: "Dépenses essentielles", icon: "home"},
+        { to: "/hobbies", label: "Loisirs", icon: "hobbies"},
       ],
     };
   },
 };
 </script>
 <template>
-    <nav class=" mt-14 self-center">
+    <nav class="self-center">
         <ul class="text-xl truncate font-bold text-gray-900 space-y-2">
             <li v-for="link in links" :key="link.to">
                 <NuxtLink

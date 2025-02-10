@@ -1,4 +1,3 @@
-import { ref } from "vue";
 import { user } from "../../mxlcwm-user/Users";
 
 const seriesData = ref<Record<string, number>>({}); 

@@ -3,7 +3,7 @@
     data() {
     return {
       links: [
-        { to: "/", label: "Pilotage mensuel", icon: "car"},
+        { to: "/home", label: "Pilotage mensuel", icon: "car"},
         { to: "/capacity", label: "Revenus", icon: "capacity"},
         { to: "/investments", label: "Investissements", icon: "investments"},
         { to: "/savings", label: "Épargnes", icon: "savings"},

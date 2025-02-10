@@ -9,4 +9,5 @@ export default defineNuxtRouteMiddleware((to, from) => {
   else if (to.path === "/" || !useRouter().getRoutes().some(route => route.path == to.path)) {
     return navigateTo('/home', {replace: true});
   }
+  navigateTo('/auth/sign-in');
 });

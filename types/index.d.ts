@@ -19,6 +19,14 @@ declare type Account = {
   shareableId: string;
 }
 
+declare type User = {
+  $id: string;
+  email: string;
+  userId: string;
+  firstName: string;
+  lastName: string;
+}
+
 declare interface signInProps {
   email: string;
   password: string;
@@ -33,4 +41,9 @@ declare interface HeaderBoxProps {
 
 declare interface getUserInfoProps {
   userId: string;
+}
+
+
+declare interface SiderbarProps {
+  user: User
 }

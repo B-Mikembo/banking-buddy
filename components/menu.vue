@@ -4,11 +4,12 @@ import { Icon } from '#components';
     data() {
     return {
       links: [
-        { to: "/", label: "Home", icon: "home"},
-        { to: "/banks", label: "Mes Banques", icon: "bank"},
-        { to: "/transactions", label: "Historique des transactions", icon: "transactions"},
-        { to: "/transfer", label: "Transfert", icon: "transfer"},
-        { to: "/addbank", label: "Connecter une banque", icon: "addbank"},
+        { to: "/", label: "Pilotage mensuel", icon: "home"},
+        { to: "/banks", label: "Revenus", icon: "bank"},
+        { to: "/transactions", label: "Investissements", icon: "transactions"},
+        { to: "/transfer", label: "Epargnes", icon: "transfer"},
+        { to: "/addbank", label: "Dépenses essentielles", icon: "addbank"},
+        { to: "/wants", label: "Dépenses plaisirs", icon: "addbank"},
       ],
     };
   },

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { pages } from "~/pages-config/storage";
 import { ref, computed } from "vue";
-import { transferPage } from "~/pages-config/transfer";
+import { transferPage } from "~/pages-config/savings";
 import { PageManager } from "~/pages-config/page-manager";
 
 const formValues = ref({

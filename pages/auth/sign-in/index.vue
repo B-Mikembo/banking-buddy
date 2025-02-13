@@ -8,4 +8,8 @@
   definePageMeta({
     layout: 'auth',
   });
+
+  useHead({
+    title: 'Connexion',
+  });
 </script>

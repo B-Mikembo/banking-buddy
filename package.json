@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "test": "vitest run",
+    "test:e2e": "playwright test --workers=1"
   },
   "dependencies": {
     "@nuxt/icon": "^1.10.3",
@@ -22,7 +24,10 @@
   },
   "devDependencies": {
     "@nuxtjs/supabase": "^1.4.6",
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^22.13.2",
     "apexcharts": "^4.3.0",
+    "vitest": "^3.0.5",
     "vue3-apexcharts": "^1.8.0"
   }
 }

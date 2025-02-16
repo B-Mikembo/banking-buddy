@@ -10,7 +10,9 @@
     "postinstall": "nuxt prepare",
     "test": "vitest run",
     "test:e2e": "playwright test --workers=1",
-    "test:e2e--dev": "npx playwright test --workers=1 --project='Google Chrome' --ui"
+    "test:e2e--dev": "npx playwright test --workers=1 --project='Google Chrome' --ui",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "dependencies": {
     "@nuxt/icon": "^1.10.3",
@@ -24,20 +26,29 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@eslint/compat": "^1.2.6",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.20.0",
     "@nuxt/test-utils": "^3.15.4",
     "@nuxtjs/supabase": "^1.4.6",
     "@playwright/test": "^1.50.1",
     "@types/node": "^22.13.2",
+    "@typescript-eslint/eslint-plugin": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.0",
     "@vue/test-utils": "^2.4.6",
     "apexcharts": "^4.3.0",
+    "eslint": "^9.20.1",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "globals": "^15.15.0",
     "happy-dom": "^16.8.1",
+    "lint-staged": "^15.4.3",
     "playwright-core": "^1.50.1",
     "vitest": "^3.0.5",
     "vue3-apexcharts": "^1.8.0"
   },
-
   "optionalDependencies": {
-   "@rollup/rollup-linux-x64-gnu": "^4.34.0",
-   "@rollup/rollup-win32-x64-msvc": "^4.34.1"
-}
+    "@rollup/rollup-linux-x64-gnu": "^4.34.0",
+    "@rollup/rollup-win32-x64-msvc": "^4.34.1"
+  }
 }

@@ -6,6 +6,10 @@ const user = await useGetLoggedInUser();
 
 pages.addPage(new PageManager(homePage(user), "home"));
 const home = pages.getPageByName("home");
+
+useHead({
+  title: 'Pilotage Mensuel'
+})
 </script>
 <template>
   <section>

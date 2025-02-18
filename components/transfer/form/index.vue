@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import type { TransferFormField } from '~/pages-config/savings';
+import type { TransferFormField } from './field';
 
 const props = defineProps<{
   title: string;
@@ -38,7 +38,7 @@ watch(
           {{ field.subtitle }}
           <p class="field-description">{{ field.description }}</p>
         </h2>
-        <div class="md:w-2/3">
+        <div class="w-fit flex flex-col">
           <div v-if="field.key === 'resource' || field.selectArray">
             <button
               @click="isOpen = !isOpen"
@@ -94,9 +94,10 @@ watch(
             v-if="field.key === 'amount'"
             v-model="modelValue[field.key]"
             type="text"
-            class="shadow appearance-none border-2 rounded border-gray-200 h-fit w-2/6 self-center focus:outline-none focus:ring-blue-700 focus:border-blue-700"
+            class="shadow appearance-none border-2 rounded border-gray-200 h-10 w-fit self-center focus:outline-none focus:ring-blue-700 focus:border-blue-700"
             placeholder="Entrez un montant"
           />
+          <button class="border-2 rounded-md bg-blue-600 hover:bg-lime-700 hover:text-white duration-300">envoyer</button>
         </div>
       </div>
     </div>

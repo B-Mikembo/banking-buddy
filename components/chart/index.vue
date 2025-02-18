@@ -1,34 +1,35 @@
 <script setup lang="ts">
-  import apexchartsClient from '~/plugins/apexcharts.client';
-  import { labels } from '~/src/domains/dashboard/charts/Charts';
+  import { activeFundPercentage, passiveFundPercentage, totalCurrentBalance } from '~/fakedata';
 
   const props = defineProps<{
     accounts: Account[];
+    type: string;
+    percent?: boolean;
+    chartStyle?: string;
   }>();
   const accounts = props.accounts;
-
   const accountNames = accounts.map(account => account.name);
+  const funds: Record<string, number> = {
+    Passive: passiveFundPercentage,
+    Active: activeFundPercentage,
+    Other: (100 - (passiveFundPercentage + activeFundPercentage)),
+  };
   const balances = accounts.map(account => account.currentBalance);
+  const labels = props.percent ? Object.keys(funds) : accountNames;
 
   const options = {
     dataLabels: {
-      enabled: false
+      enabled: props.percent
     },
-    labels: accountNames,
+    labels: labels,
     colors: ['#0747b6', '#2265d8', '#2f91fa'],
     legend: {
-      show: false,
-    },
-    plotOptions: {
-      pie: {
-        donut: {
-          size: '60%',
-        },
-      },
+      show: props.percent,
+      position: "bottom"
     },
   };
 </script>
 
 <template>
-  <apexchart class="total-balance-chart" type="donut" :options="options" :series="balances"></apexchart>
+  <apexchart :class="chartStyle" :type="type" :options="options" :series="percent ? Object.values(funds) : balances"></apexchart>
 </template>

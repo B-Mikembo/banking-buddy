@@ -49,7 +49,7 @@
     @apply flex w-full items-center gap-4 rounded-xl border border-gray-200 p-4 shadow-chart sm:gap-6 sm:p-6;
   }
   .total-balance-chart {
-    @apply flex size-full max-w-[200px] items-center sm:max-w-[240px];
+    @apply flex border-2 border-gray-900 size-full max-w-[200px] items-center sm:max-w-[240px];
   }
   .total-balance-label {
     @apply text-14 font-medium text-gray-600;
@@ -96,13 +96,13 @@
     @apply flex flex-col w-full border border-gray-200 shadow-chart sm:p-2;
   }
   .form-box-title {
-    @apply text-16 lg:text-24 font-semibold text-gray-900;
+    @apply text-16 text-center lg:text-24 font-semibold text-gray-900;
   }
   .form-box-subtext {
-    @apply text-12 lg:text-14 mb-6 font-normal text-gray-600 mx-2;
+    @apply text-12 text-center lg:text-14 mb-6 font-normal text-gray-600 mx-2;
   }
   .field-box {
-    @apply w-full mb-6 h-24 md:grid-cols-2 md:items-center border border-gray-200 shadow-chart sm:p-2 flex;
+    @apply w-full flex-col h-32 items-center justify-center border border-gray-200 shadow-chart sm:p-2 flex;
   }
   .field-subtitle {
     @apply text-16 sm:w-3/12 lg:w-1/5 lg:text-18 font-semibold text-gray-800;

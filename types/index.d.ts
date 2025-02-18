@@ -9,6 +9,8 @@ declare type Account = {
   id: string;
   availableBalance: number;
   currentBalance: number;
+  passiveFund: number;
+  activeFund: number;
   officialName: string;
   mask: string;
   institutionId: string;

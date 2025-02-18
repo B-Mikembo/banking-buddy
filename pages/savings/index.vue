@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { pages } from "~/pages-config/storage";
 import { ref, computed } from "vue";
-import { transferPage } from "~/pages-config/savings";
-import { PageManager } from "~/pages-config/page-manager";
 
 const formValues = ref({
   transferInfo: {},
@@ -36,24 +33,8 @@ const submitForm = () => {
   console.log("Form Submitted:", formValues.value);
 
 };
-pages.addPage(new PageManager(transferPage(formValues.value.transferInfo, formValues.value.recipientDetails), "transfer"));
-const transfer = pages.getPageByName("transfer");
 </script>
 <template>
   <section>
-    <component
-      v-for="section in transfer?.getSections()"
-      :is="section.component"
-      :key="section.id"
-      v-bind="section.props"
-    />
-    <button
-      @click="submitForm"
-      :disabled="!isFormComplete && !isValuesValid()"
-      :class="isFormComplete && isValuesValid() ? 'bg-blue-500 hover:bg-blue-600' : 'bg-gray-300 cursor-not-allowed'"
-      class="w-full rounded text-white"
-    >
-      Soumettre le formulaire
-    </button>
   </section>
 </template>

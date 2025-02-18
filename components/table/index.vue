@@ -13,9 +13,6 @@ const rows = Object.entries(props.values);
         <th v-for="(header, index) in headers" :key="index" class="border px-4 py-2">
           {{ header }}
         </th>
-        <button>
-          add category
-        </button>
       </tr>
     </thead>
     <tbody>
@@ -24,9 +21,6 @@ const rows = Object.entries(props.values);
           {{ value }}
         </td>
       </tr>
-      <button>
-        add row
-      </button>
     </tbody>
   </table>
 </template>

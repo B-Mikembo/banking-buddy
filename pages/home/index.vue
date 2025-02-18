@@ -1,19 +1,10 @@
 <script setup lang="ts">
-import { pages } from '~/pages-config/storage';
-import { PageManager } from '~/pages-config/page-manager';
-import { homePage } from '~/pages-config/home/index';
+import { accounts, totalCurrentBalance } from '~/fakedata';
 const user = await useGetLoggedInUser();
-
-pages.addPage(new PageManager(homePage(user), "home"));
-const home = pages.getPageByName("home");
 </script>
 <template>
   <section>
-        <component
-          v-for="section in home?.getSections()"
-          :is="section.component"
-          :key="section.id"
-          v-bind="section.props"
-        />
+    <HeaderBox type="greeting" title="Bienvenue" sub-text="Accédez et gérez efficacement votre compte et vos transactions." :user="user.firstname" />
+    <TotalBalanceBox  :accounts="accounts" :total-banks="accounts.length" :total-current-balance="totalCurrentBalance" chart-type="donut" />
   </section>
 </template>

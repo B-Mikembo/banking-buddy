@@ -10,7 +10,7 @@ export default defineVitestConfig({
   },
   resolve: {
     alias: {
-      '@': '/domains'
+      '@': '.'
     }
   }
 });

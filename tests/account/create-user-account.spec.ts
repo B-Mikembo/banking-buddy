@@ -16,7 +16,7 @@ describe('create user file test', () => {
     const usecase = new CreateUserAccountUsecase(userAccountRepository);
     await usecase.execute(
       new CreateAccountPresenterImpl(viewModel => {
-        expect(viewModel.route).toBe('login');
+        expect(viewModel.route).toBe('sign-up');
       }),
       accountToCreate
     );

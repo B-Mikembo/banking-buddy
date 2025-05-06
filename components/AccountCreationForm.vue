@@ -48,7 +48,6 @@
   });
   let hasAccountCreationError = ref<boolean>();
   let accountCreationErrorMessage = ref<string>('');
-  let validForm = ref<boolean>(false);
 
   const passwordInput = ref<HTMLInputElement | undefined>();
 

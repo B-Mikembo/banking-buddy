@@ -21,7 +21,7 @@
         <span class="block sm:inline">{{ accountCreationErrorMessage }}</span>
       </div>
       <EmailInput v-model="userAccountInput.email" label="Adresse électronique" name="user-email" />
-      <PasswordInput autocomplete-value="new-password" v-model="userAccountInput.password" :required="true" />
+      <PasswordInput autocomplete-value="new-password" v-model="userAccountInput.password" :required="true" legende="Votre mot de passe doit contenir :"/>
       <div class="flex flex-col gap-4">
         <button type="submit" class="form-btn">S'inscrire</button>
       </div>

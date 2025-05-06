@@ -17,7 +17,7 @@ const config = {
           1: '#F3F9FF',
         },
         black: {
-          1: '#00214F',
+          1: '#373530',
         },
         gray: {
           25: '#FCFCFD',
@@ -28,6 +28,8 @@ const config = {
           700: '#344054',
           900: '#101828',
         },
+        green: '#548164',
+        red: '#be524b',
       },
       backgroundImage: {
         'bank-gradient': 'linear-gradient(90deg, #0179FE 0%, #4893FF 100%)',

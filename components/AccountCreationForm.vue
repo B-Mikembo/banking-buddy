@@ -21,7 +21,13 @@
         <span class="block sm:inline">{{ accountCreationErrorMessage }}</span>
       </div>
       <EmailInput v-model="userAccountInput.email" label="Adresse électronique" name="user-email" />
-      <PasswordInput autocomplete-value="new-password" v-model="userAccountInput.password" :required="true" legende="Votre mot de passe doit contenir :"/>
+      <PasswordInput
+        autocomplete-value="new-password"
+        v-model="userAccountInput.password"
+        :required="true"
+        legende="Votre mot de passe doit contenir :"
+        @update:valid-password="onValidPasswordChanged"
+      />
       <div class="flex flex-col gap-4">
         <button type="submit" class="form-btn">S'inscrire</button>
       </div>
@@ -48,12 +54,17 @@
   });
   let hasAccountCreationError = ref<boolean>();
   let accountCreationErrorMessage = ref<string>('');
+  let validForm = ref<boolean>(false);
 
   const passwordInput = ref<HTMLInputElement | undefined>();
 
   onMounted(() => {
     passwordInput.value = document.querySelector('#password') as HTMLInputElement;
   });
+
+  function onValidPasswordChanged(isValidPassword: boolean) {
+    validForm.value = isValidPassword;
+  }
 
   const performCreateUserAccount = async () => {
     hasAccountCreationError.value = false;

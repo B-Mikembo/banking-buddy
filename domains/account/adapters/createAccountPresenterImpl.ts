@@ -1,5 +1,5 @@
 import { CreateAccountPresenter } from '../ports/createAccountPresenter';
-import { AccountRouteName } from '~/router/account/accountNameRoute';
+import { CommonRouteName } from '~/router';
 
 interface CreateAccountViewModel {
   route: string;
@@ -10,7 +10,7 @@ export class CreateAccountPresenterImpl implements CreateAccountPresenter {
 
   show() {
     this.createAccountViewModel({
-      route: AccountRouteName.SIGN_UP /* déterminer la route de la page de connexion */,
+      route: CommonRouteName.SIGN_IN /* déterminer la route de la page de connexion */,
     });
   }
 }

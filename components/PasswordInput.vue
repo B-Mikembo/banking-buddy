@@ -27,6 +27,15 @@
         12 caractères minimum
       </p>
       <p
+        :class="atLeastOneUpperCaseAndOneLowerCase(modelValue) ? 'message--valid' : 'message--info'"
+        id="password-input-message-info-1"
+      >
+        <span>
+          {{ atLeastOneUpperCaseAndOneLowerCase(modelValue) ? 'critère valide :' : 'critère non valide :' }}
+        </span>
+        Au moins 1 majuscule et 1 minuscule
+      </p>
+      <p
         :class="atLeastOneSpecialCharacter(modelValue) ? 'message--valid' : 'message--info'"
         id="password-input-message-info-2"
       >
@@ -35,10 +44,7 @@
         </span>
         1 caractère spécial minimum
       </p>
-      <p
-        :class="atLeastOneDigit(modelValue) ? 'message--valid' : 'message--info'"
-        id="password-input-message-info-3"
-      >
+      <p :class="atLeastOneDigit(modelValue) ? 'message--valid' : 'message--info'" id="password-input-message-info-3">
         <span>
           {{ atLeastOneDigit(modelValue) ? 'critère valide :' : 'critère non valide :' }}
         </span>

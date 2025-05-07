@@ -26,6 +26,15 @@
         </span>
         12 caractères minimum
       </p>
+      <p
+        :class="atLeastOneDigit(modelValue) ? 'message--valid' : 'message--info'"
+        id="password-input-message-info-3"
+      >
+        <span>
+          {{ atLeastOneDigit(modelValue) ? 'critère valide :' : 'critère non valide :' }}
+        </span>
+        1 chiffre minimum
+      </p>
     </div>
   </div>
 </template>

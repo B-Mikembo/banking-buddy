@@ -5,11 +5,9 @@
 </template>
 
 <script setup lang="ts">
-  definePageMeta({
-    layout: 'auth',
-  });
+  import { CommonRouteName } from '~/router';
 
-  useHead({
-    title: 'Connexion',
+  definePageMeta({
+    layout: 'auth'
   });
 </script>

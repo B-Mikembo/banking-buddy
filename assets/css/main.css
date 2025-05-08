@@ -70,13 +70,19 @@
     @apply text-14 w-full max-w-[280px] font-medium text-gray-700;
   }
   .form-message {
-    @apply text-12 text-red-500;
+    @apply text-12 text-red;
   }
   .form-btn {
     @apply text-16 rounded-lg border border-bankGradient bg-bank-gradient font-semibold text-white shadow-form;
   }
   .form-link {
     @apply text-14 cursor-pointer font-medium text-bankGradient;
+  }
+  .message--valid {
+    @apply text-12 text-green;
+  }
+  .message--info {
+    @apply text-12 text-red;
   }
   .root-layout {
     @apply flex h-16 items-center justify-between p-5 shadow-creditCard sm:p-8 md:hidden;

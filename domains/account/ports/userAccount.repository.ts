@@ -1,5 +1,5 @@
 export interface UserAccountToCreate {
-  firstName: string;
+  pseudo: string;
   email: string;
   password: string;
 }

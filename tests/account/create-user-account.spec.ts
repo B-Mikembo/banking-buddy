@@ -7,7 +7,7 @@ describe('create user file test', () => {
   it('should create new user and redirect to login page', async () => {
     //  GIVEN
     const accountToCreate: UserInput = {
-      firstName: 'Bob',
+      pseudo: 'Bob',
       email: 'w@w.com',
       password: 'password',
     };
@@ -20,5 +20,7 @@ describe('create user file test', () => {
       }),
       accountToCreate
     );
+
+    expect(userAccountRepository.createUserAccountArgs).toStrictEqual(accountToCreate);
   });
 });

@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
   import { CreateAccountPresenterImpl } from '~/domains/account/adapters/createAccountPresenterImpl';
   import { UserAccountRepositoryImpl } from '~/domains/account/adapters/userAccount.repository.impl';
   import { CreateUserAccountUsecase, type UserInput } from '~/domains/account/create-user-account.usecase';

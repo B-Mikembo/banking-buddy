@@ -1,3 +1,9 @@
+export interface User {
+  id: string;
+  email: string;
+  token?: string;
+}
+
 export interface UserRepository {
-  signInUser(email: string, password: string): Promise<void>;
+  authenticateUser(email: string, password: string): Promise<User>;
 }
